@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Article | Nexus Arena</title>
+    <meta id="pageDesc" name="description" content="Read this article on Nexus Arena">
+    <meta property="og:type" content="article">
+    <meta id="ogTitle" property="og:title" content="Article | Nexus Arena">
+    <meta id="ogDesc" property="og:description" content="Read this article on Nexus Arena">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <script type="application/ld+json" id="articleJsonLd"></script>
+    <style>
+        :root { --neon-blue:#00f3ff; --neon-purple:#bc13fe; --neon-pink:#ff0055; --neon-green:#00ff88; --neon-yellow:#ffd700; --dark-bg:#0a0a1a; --darker-bg:#050510; --card-bg:rgba(15,15,35,0.85); }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Rajdhani',sans-serif; background:var(--dark-bg); color:#fff; min-height:100vh; }
+        .bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:radial-gradient(ellipse at 20% 80%,rgba(188,19,254,0.1) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,243,255,0.1) 0%,transparent 50%),var(--darker-bg); }
+        nav { padding:15px 40px; display:flex; justify-content:space-between; align-items:center; background:rgba(5,5,16,0.95); border-bottom:1px solid rgba(0,243,255,0.2); position:sticky; top:0; z-index:100; }
+        .logo { font-family:'Orbitron',sans-serif; font-size:22px; font-weight:900; background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+        .back-link { color:var(--neon-blue); text-decoration:none; font-weight:600; display:flex; align-items:center; gap:8px; transition:0.3s; }
+        .back-link:hover { gap:15px; text-shadow:0 0 10px var(--neon-blue); }
+        .article-hero { width:100%; height:400px; position:relative; overflow:hidden; }
+        .article-hero img { width:100%; height:100%; object-fit:cover; }
+        .article-hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(10,10,26,0.95)); }
+        .article-hero-content { position:absolute; bottom:40px; left:0; right:0; padding:0 40px; max-width:900px; margin:0 auto; }
+        .article-hero-content h1 { font-family:'Orbitron',sans-serif; font-size:36px; margin-bottom:15px; line-height:1.3; }
+        .article-meta { display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:14px; color:rgba(255,255,255,0.6); }
+        .article-meta .tag { display:inline-block; padding:4px 14px; border-radius:12px; font-size:12px; font-weight:700; }
+        .tag-guide { background:rgba(0,255,136,0.2); color:var(--neon-green); }
+        .tag-update { background:rgba(0,243,255,0.2); color:var(--neon-blue); }
+        .tag-news { background:rgba(255,0,85,0.2); color:var(--neon-pink); }
+        .tag-event { background:rgba(255,215,0,0.2); color:var(--neon-yellow); }
+        .tag-community { background:rgba(188,19,254,0.2); color:var(--neon-purple); }
+        .article-body { max-width:800px; margin:0 auto; padding:50px 40px; line-height:1.9; font-size:17px; color:rgba(255,255,255,0.85); }
+        .article-body h2 { font-family:'Orbitron',sans-serif; font-size:22px; color:var(--neon-purple); margin:35px 0 15px; }
+        .article-body p { margin-bottom:20px; }
+        .article-body strong { color:var(--neon-yellow); }
+        .article-body ul, .article-body ol { margin:15px 0 20px 25px; }
+        .article-body li { margin-bottom:8px; }
+        .article-footer { max-width:800px; margin:0 auto; padding:30px 40px 60px; border-top:1px solid rgba(0,243,255,0.15); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+        .share-btns { display:flex; gap:10px; }
+        .share-btns a { width:40px; height:40px; border-radius:50%; border:1px solid rgba(0,243,255,0.3); display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; transition:0.3s; }
+        .share-btns a:hover { background:var(--neon-blue); transform:translateY(-3px); }
+        .related { max-width:800px; margin:0 auto; padding:0 40px 60px; }
+        .related h3 { font-family:'Orbitron',sans-serif; font-size:20px; color:var(--neon-blue); margin-bottom:25px; }
+        .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+        .related-card { background:var(--card-bg); border-radius:15px; border:1px solid rgba(0,243,255,0.1); overflow:hidden; transition:0.3s; text-decoration:none; color:#fff; }
+        .related-card:hover { border-color:var(--neon-purple); transform:translateY(-5px); box-shadow:0 10px 30px rgba(188,19,254,0.2); }
+        .related-card img { width:100%; height:150px; object-fit:cover; }
+        .related-card .rc-body { padding:15px; }
+        .related-card h4 { font-family:'Orbitron',sans-serif; font-size:14px; margin-bottom:8px; color:var(--neon-blue); }
+        .related-card p { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.5; }
+        footer { background:var(--darker-bg); border-top:1px solid rgba(0,243,255,0.2); padding:30px 40px; text-align:center; }
+        footer .copyright { color:rgba(255,255,255,0.4); font-size:14px; }
+        @media (max-width:768px) { nav { padding:15px 20px; } .article-hero { height:250px; } .article-hero-content { padding:0 20px; } .article-hero-content h1 { font-size:24px; } .article-body { padding:30px 20px; font-size:16px; } .article-footer, .related { padding-left:20px; padding-right:20px; } }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <nav>
+        <a href="index.html" class="logo">NEXUS ARENA</a>
+        <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    </nav>
+
+    <div class="article-hero" id="articleHero">
+        <img id="heroImg" src="" alt="">
+        <div class="article-hero-overlay"></div>
+        <div class="article-hero-content">
+            <span class="tag" id="heroTag"></span>
+            <h1 id="heroTitle">Loading...</h1>
+            <div class="article-meta">
+                <span id="heroDate"><i class="fas fa-calendar"></i> </span>
+                <span id="heroAuthor"><i class="fas fa-user"></i> </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-body" id="articleBody"></div>
+
+    <div class="article-footer">
+        <div class="share-btns">
+            <a href="#" id="shareTwitter" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" id="shareFacebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" id="shareDiscord" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+        <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    </div>
+
+    <div class="related" id="relatedSection">
+        <h3><i class="fas fa-newspaper"></i> Related Articles</h3>
+        <div class="related-grid" id="relatedGrid"></div>
+    </div>
+
+    <footer>
+        <p class="copyright"> 2026 Nexus Arena. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const blogArticles = [
+            { id:1, title:'Top 10 Tips to Dominate Cosmic Defender', category:'Guide', tag:'guide', publishDate:'2026-06-08', author:'Admin', image:'https://picsum.photos/seed/cosmic/800/400', excerpt:'Master the art of space combat with these pro strategies.', content:'<p>Cosmic Defender is one of the most challenging space shooters on Nexus Arena. With endless waves of alien invaders, you need more than quick reflexes to survive. Here are the top 10 tips to help you dominate the leaderboard:</p><h2>1. Master the Art of Strafing</h2><p>Never stay still. Constant lateral movement makes it harder for enemies to hit you.</p><h2>2. Power-Up Combinations</h2><p>Some power-ups stack! Collecting two speed boosts gives you a temporary fire-rate bonus.</p><h2>3. Enemy Pattern Recognition</h2><p>Each enemy type follows a specific movement pattern. Learn these patterns to predict where they will be.</p><h2>4. Save Your Bombs</h2><p>Don\'t use screen-clearing bombs on small enemies. Save them for when you are surrounded.</p><h2>5. Focus on Accuracy</h2><p>A single precise shot is worth more than ten wild ones. Wait for enemies to align.</p><h2>6. Upgrade Strategically</h2><p>Prioritize shield strength and weapon spread over speed in the early game.</p><h2>7. The 1M+ Score Secret</h2><p>Maintain a combo chain. Killing enemies within 2 seconds keeps your multiplier active.</p><h2>8. Boss Weak Points</h2><p>Every boss has a glowing weak point. Focus all your fire there.</p><h2>9. Use the Environment</h2><p>Asteroids can be used as shields. Position yourself behind large asteroids.</p><h2>10. Practice in Training Mode</h2><p>Spend at least 10 minutes per day in practice mode to master patterns.</p>' },
+            { id:2, title:'Neon Racer X: New Tracks Coming Soon', category:'Update', tag:'update', publishDate:'2026-06-05', author:'Admin', image:'https://picsum.photos/seed/racer/800/400', excerpt:'Get ready for 5 new neon-lit tracks.', content:'<p>Five brand-new tracks are coming to Nexus Arena!</p><h2>Track 1: Neon Express</h2><p>A high-speed rail-inspired track with sharp turns.</p><h2>Track 2: Abyss Dive</h2><p>An underwater tunnel track with bioluminescent coral reefs.</p><h2>Track 3: Gravity Loop</h2><p>Defies physics with multiple 360-degree loops.</p><h2>Track 4: Data Storm</h2><p>Race through a digital dimension of flowing data streams.</p><h2>Track 5: The Gauntlet</h2><p>The ultimate challenge combining all elements.</p><h2>Release Date</h2><p>All five tracks available on June 15, 2026.</p>' },
+            { id:3, title:'Quantum Puzzle: Understanding Combo Mechanics', category:'Guide', tag:'guide', publishDate:'2026-06-01', author:'Admin', image:'https://picsum.photos/seed/puzzle/800/400', excerpt:'Deep dive into the combo system.', content:'<p>The combo system separates casual players from puzzle masters.</p><h2>How Combos Work</h2><p>Swap adjacent tiles to create matches. Cascading chains multiply your score.</p><h2>Combo Multiplier Table</h2><p>Chain 1: x1 | Chain 2: x2 | Chain 3: x4 | Chain 4: x8 | Chain 5+: x16</p><h2>Color Theory</h2><p>Blue tiles act as wildcards. Purple tiles give bonus points. Red tiles explode.</p><h2>Board Management</h2><p>Keep your board flat. Focus on clearing from the bottom up.</p><h2>Advanced Techniques</h2><p>The L-Shape technique creates two matches from one swap.</p>' },
+            { id:4, title:'Weekly Tournament Results & Highlights', category:'Event', tag:'event', publishDate:'2026-05-28', author:'Admin', image:'https://picsum.photos/seed/tournament/800/400', excerpt:'Check out the top plays and record-breaking moments.', content:'<p>Our biggest tournament yet with over 5,000 participants!</p><h2>Cosmic Defender Champion</h2><p><strong>NeonKing</strong> scores 2,847,500 points.</p><h2>Neon Racer X Winner</h2><p><strong>StarLord</strong> sets a world record: 1:23.456.</p><h2>Quantum Puzzle Master</h2><p><strong>QuantumX</strong> achieves a 12-chain combo.</p><h2>Upcoming Championship</h2><p>Next tournament: June 15, 2026.</p>' },
+            { id:5, title:'Server Upgrade: Faster, Better, Stronger', category:'News', tag:'news', publishDate:'2026-05-25', author:'Admin', image:'https://picsum.photos/seed/server/800/400', excerpt:'Major infrastructure upgrade for 4K gaming.', content:'<p>A major infrastructure upgrade brings faster load times.</p><h2>What Changed</h2><p>Global CDN, upgraded servers, WebSocket optimizations.</p><h2>Performance Improvements</h2><p>60% faster loading, 60fps on mobile, sub-100ms leaderboard updates.</p><h2>4K Ready</h2><p>All games now support 4K resolution.</p><h2>Zero Latency</h2><p>80% latency reduction with new network architecture.</p>' },
+            { id:6, title:'Community Spotlight: Player of the Month', category:'Community', tag:'community', publishDate:'2026-05-20', author:'Admin', image:'https://picsum.photos/seed/community/800/400', excerpt:'Meet the top players crushing the leaderboards.', content:'<p>Spotlighting the most dedicated players this month.</p><h2>Player of the Month: NeonKing</h2><p>985,000 total points, level 87. Tips: Learn patterns, prioritize survival.</p><h2>Runner Up: StarLord</h2><p>Neon Racer X master. Advice: Master turns before speed.</p><h2>Rising Star: QuantumX</h2><p>Climbed 40 levels in two weeks. Strategy: Always set up cascades.</p><h2>Community Choice: PixelHero</h2><p>Most helpful player. Runs weekly training sessions.</p>' },
+            { id:7, title:'Cosmic Defender Boss Guide: Level 50+', category:'Guide', tag:'guide', publishDate:'2026-05-15', author:'NeonKing', image:'https://picsum.photos/seed/boss/800/400', excerpt:'Complete boss guide for end-game challenges.', content:'<p>Levels 50+ introduce bosses requiring strategy.</p><h2>The Void Overlord (Level 50)</h2><p>Attacks: Shockwave, Laser Barrage, Summon Minions. Weak point: glowing core.</p><h2>The Quantum Beast (Level 75)</h2><p>Phases between dimensions. Attack when solid. Destroy mirrors first.</p><h2>The Final Form (Level 100)</h2><p>Ultimate challenge with four phases. Adapt to attack patterns.</p><h2>General Boss Tips</h2><p>Always keep moving. Learn attack telegraphs. Save abilities for phase transitions.</p>' },
+            { id:8, title:'Achievement System: Hidden Rewards Revealed', category:'News', tag:'news', publishDate:'2026-05-10', author:'Admin', image:'https://picsum.photos/seed/achievement/800/400', excerpt:'Unlock every hidden reward in Nexus Arena.', content:'<p>Complete guide to every hidden achievement.</p><h2>Speed Demon</h2><p>Reach level 20 in Neon Racer X without crashing.</p><h2>Puzzle Grandmaster</h2><p>Achieve a 10-chain combo in Quantum Puzzle.</p><h2>Unstoppable</h2><p>Score 500,000 points in a single Cosmic Defender run.</p><h2>Treasure Hunter</h2><p>Collect 100 power-ups across all games.</p><h2>Secret Achievements</h2><p>Score exactly 69,420 points. Beat the developer\'s score. Reach level 100.</p>' },
+            { id:9, title:'Summer Tournament 2026: Grand Championship', category:'Event', tag:'event', publishDate:'2026-06-15', author:'Admin', image:'https://picsum.photos/seed/summer/800/400', excerpt:'The biggest tournament of the year.', content:'<p>The most ambitious competitive event in Nexus Arena history!</p><h2>Tournament Format</h2><p>Three rounds across three games. 72 hours each. Best score counts.</p><h2>Prizes</h2><p>1st: 50,000 points + Golden Avatar. 2nd: 25,000 points. 3rd: 10,000 points.</p><h2>Registration</h2><p>Opens June 10, 2026. No entry fee. All players welcome.</p>' },
+            { id:10, title:'Behind the Scenes: How We Built Nexus Arena', category:'News', tag:'news', publishDate:'2026-06-20', author:'Admin', image:'https://picsum.photos/seed/bts/800/400', excerpt:'Technology and design behind Nexus Arena.', content:'<p>Pulling back the curtain on the technology powering your games.</p><h2>The Rendering Engine</h2><p>Custom 2D rendering engine using HTML5 Canvas. No frameworks.</p><h2>Real-Time Leaderboards</h2><p>WebSocket connections for instant updates.</p><h2>Sound System</h2><p>All sounds generated procedurally using Web Audio API.</p><h2>The Art of Neon</h2><p>CSS gradients, box shadows, and canvas glow effects for the neon look.</p><h2>What\'s Next</h2><p>Multiplayer support, mobile touch controls, and a level editor.</p>' }
+        ];
+
+        function getArticleId() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
+
+        function getPublishedArticles() {
+            const today = new Date().toISOString().split('T')[0];
+            return blogArticles.filter(a => a.publishDate <= today);
+        }
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+        }
+
+        function renderArticle() {
+            const id = getArticleId();
+            const article = blogArticles.find(a => a.id === id);
+            if (!article) {
+                document.getElementById('articleBody').innerHTML = '<h2>Article not found</h2><p>This article may have been removed or is not yet published.</p><br><a href="index.html#blog" style="color:var(--neon-blue);">Return to Blog</a>';
+                return;
+            }
+
+            document.getElementById('pageTitle').textContent = article.title + ' | Nexus Arena';
+            document.getElementById('pageDesc').setAttribute('content', article.excerpt);
+            document.getElementById('ogTitle').setAttribute('content', article.title + ' | Nexus Arena');
+            document.getElementById('ogDesc').setAttribute('content', article.excerpt);
+            document.getElementById('heroImg').src = article.image;
+            document.getElementById('heroImg').alt = article.title;
+            document.getElementById('heroTitle').textContent = article.title;
+            document.getElementById('heroTag').textContent = article.category;
+            document.getElementById('heroTag').className = 'tag tag-' + article.tag;
+            document.getElementById('heroDate').innerHTML = '<i class="fas fa-calendar"></i> ' + formatDate(article.publishDate);
+            document.getElementById('heroAuthor').innerHTML = '<i class="fas fa-user"></i> ' + article.author;
+            document.getElementById('articleBody').innerHTML = article.content;
+
+            const pageUrl = window.location.href;
+            const shareText = encodeURIComponent(article.title + ' - Nexus Arena');
+            document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(pageUrl) + '&text=' + shareText;
+            document.getElementById('shareFacebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+            document.getElementById('shareDiscord').href = pageUrl;
+
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": article.title,
+                "description": article.excerpt,
+                "author": { "@type": "Person", "name": article.author },
+                "datePublished": article.publishDate,
+                "image": article.image,
+                "publisher": { "@type": "Organization", "name": "Nexus Arena", "url": "https://farndimini.github.io/nexus_arena/" },
+                "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl }
+            };
+            document.getElementById('articleJsonLd').textContent = JSON.stringify(jsonLd);
+
+            renderRelated(article);
+        }
+
+        function renderRelated(current) {
+            const published = getPublishedArticles().filter(a => a.id !== current.id && a.tag === current.tag);
+            const other = getPublishedArticles().filter(a => a.id !== current.id && a.tag !== current.tag);
+            const related = [...published, ...other].slice(0, 3);
+
+            if (related.length === 0) {
+                document.getElementById('relatedSection').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('relatedGrid').innerHTML = related.map(a =>
+                '<a href="blog.html?id=' + a.id + '" class="related-card">' +
+                    '<img src="' + a.image + '" alt="' + a.title + '" loading="lazy">' +
+                    '<div class="rc-body">' +
+                        '<h4>' + a.title + '</h4>' +
+                        '<p>' + a.excerpt + '</p>' +
+                    '</div>' +
+                '</a>'
+            ).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderArticle);
+    </script>
+</body>
+</html>
