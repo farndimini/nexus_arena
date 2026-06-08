@@ -1137,12 +1137,17 @@
             { id: 9, title: 'Summer Tournament 2026: Grand Championship', category: 'Event', tag: 'event', publishDate: '2026-06-15', author: 'Admin', image: 'https://picsum.photos/seed/summer/800/400', excerpt: 'The biggest tournament of the year is here! Compete in all three games for massive prizes and the title of Nexus Arena Champion.',
               content: '<p>Get ready for the Summer Tournament 2026 - the most ambitious competitive event in Nexus Arena history!</p><h2>Tournament Format</h2><p>Three rounds across three games. Each round lasts 72 hours. Your best score in each game counts toward your total ranking.</p><h2>Prizes</h2><p>1st Place: 50,000 points + Exclusive Golden Avatar + Custom Title. 2nd Place: 25,000 points + Silver Avatar. 3rd Place: 10,000 points + Bronze Avatar. Top 10: 5,000 points each.</p><h2>Registration</h2><p>Registration opens June 10, 2026. No entry fee required. All players are welcome regardless of level or experience.</p><h2>New Features</h2><p>Live spectating mode, real-time bracket updates, and a tournament chat room. Watch your favorite players compete in real-time!</p>' },
             { id: 10, title: 'Behind the Scenes: How We Built Nexus Arena', category: 'News', tag: 'news', publishDate: '2026-06-20', author: 'Admin', image: 'https://picsum.photos/seed/bts/800/400', excerpt: 'A deep dive into the technology and design decisions behind Nexus Arena. From canvas rendering to real-time leaderboards.',
-              content: '<p>Ever wondered how Nexus Arena works under the hood? In this article, we pull back the curtain on the technology powering your favorite browser games.</p><h2>The Rendering Engine</h2><p>We built a custom 2D rendering engine using HTML5 Canvas. No frameworks, no dependencies - just raw JavaScript for maximum performance. Every frame is optimized to deliver smooth 60fps gameplay.</p><h2>Real-Time Leaderboards</h2><p>Our leaderboard system uses WebSocket connections for instant updates. When a player scores points, everyone sees the change in real-time. No page refresh needed.</p><h2>Sound System</h2><p>All sound effects are generated procedurally using the Web Audio API. No audio files to download - the browser synthesizes every explosion, laser, and power-up sound in real-time.</p><h2>The Art of Neon</h2><p>Our visual style is inspired by cyberpunk aesthetics. We use CSS gradients, box shadows, and canvas glow effects to create the signature neon look without heavy GPU usage.</p><h2>What\'s Next</h2><p>We are working on multiplayer support, mobile touch controls, and a level editor. Stay tuned for more updates!</p>' }
+              content: '<p>Ever wondered how Nexus Arena works under the hood? In this article, we pull back the curtain on the technology powering your favorite browser games.</p><h2>The Rendering Engine</h2><p>We built a custom 2D rendering engine using HTML5 Canvas. No frameworks, no dependencies - just raw JavaScript for maximum performance. Every frame is optimized to deliver smooth 60fps gameplay.</p><h2>Real-Time Leaderboards</h2><p>Our leaderboard system uses WebSocket connections for instant updates. When a player scores points, everyone sees the change in real-time. No page refresh needed.</p><h2>Sound System</h2><p>All sound effects are generated procedurally using the Web Audio API. No audio files to download - the browser synthesizes every explosion, laser, and power-up sound in real-time.</p><h2>The Art of Neon</h2><p>Our visual style is inspired by cyberpunk aesthetics. We use CSS gradients, box shadows, and canvas glow effects to create the signature neon look without heavy GPU usage.</p><h2>What\'s Next</h2><p>We are working on multiplayer support, mobile touch controls, and a level editor. Stay tuned for more updates!</p>' },
+            { id:11, title:'TEST - Scheduled Article (Auto-publish in 10 min)', category:'News', tag:'news', publishDate:'2026-06-08T16:00:00', author:'Admin', image:'https://picsum.photos/seed/test123/800/400', excerpt:'This is a test article to verify the scheduling system works. It should appear automatically after 10 minutes!',
+              content:'<h2>Test Article</h2><p>This article was scheduled to appear 10 minutes after publishing. If you can see it, the scheduling system is working correctly!</p><h2>How Scheduling Works</h2><p>Each article has a <strong>publishDate</strong> field. Articles with future dates are hidden until that date arrives.</p><h2>Scheduled Articles</h2><p>You can schedule articles for any future date by setting the publishDate to a future timestamp. The system will automatically show them when the time comes.</p>' }
         ];
 
         function getPublishedArticles() {
-            const today = new Date().toISOString().split('T')[0];
-            return blogArticles.filter(a => a.publishDate <= today).sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+            const now = new Date();
+            return blogArticles.filter(a => {
+                const pubDate = a.publishDate.length > 10 ? new Date(a.publishDate) : new Date(a.publishDate + 'T00:00:00');
+                return pubDate <= now;
+            }).sort((a, b) => b.publishDate.localeCompare(a.publishDate));
         }
 
         function saveToLocalStorage() {
@@ -1842,7 +1847,7 @@
         }
 
         function formatDate(dateStr) {
-            const d = new Date(dateStr + 'T00:00:00');
+            const d = new Date(dateStr.length > 10 ? dateStr : dateStr + 'T00:00:00');
             return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
         }
 
